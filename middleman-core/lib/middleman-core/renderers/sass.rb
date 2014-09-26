@@ -1,4 +1,4 @@
-require 'sass'
+require 'sassc'
 require 'compass/import-once'
 
 GLOB = /\*|\[.+\]/
@@ -82,7 +82,7 @@ module Middleman
         # @return [String]
         def evaluate(context, _)
           @context ||= context
-          @engine = ::Sass::Engine.new(data, sass_options)
+          @engine = ::SassC::Engine.new(data, sass_options)
 
           begin
             @engine.render
